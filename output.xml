@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170720 16:30:29.749" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="C:\Roundtrip_test\Roundtrip\southwest_test" id="s1" name="Southwest Test">
+<suite source="C:\Roundtrip_test\Roundtrip\southwest_test\open_southwest.robot" id="s1-s1" name="Open Southwest">
+<test id="s1-s1-t1" name="Valid open">
+<kw name="Open Browser To Home Page" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOME URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:32.453" level="INFO">Opening browser 'Chrome' to base url 'https://www.southwest.com/'</msg>
+<status status="PASS" endtime="20170720 16:30:42.154" starttime="20170720 16:30:32.453"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170720 16:30:43.352" starttime="20170720 16:30:42.155"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 16:30:43.352" starttime="20170720 16:30:43.352"></status>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${HOME URL}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:43.365" level="INFO">Current location is 'https://www.southwest.com/'.</msg>
+<status status="PASS" endtime="20170720 16:30:43.365" starttime="20170720 16:30:43.352"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>${HOME TITLE}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:43.373" level="INFO">Page title is 'Southwest Airlines | Book Flights, Airline Tickets, Airfare'.</msg>
+<status status="PASS" endtime="20170720 16:30:43.374" starttime="20170720 16:30:43.366"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:43.374" starttime="20170720 16:30:32.453"></status>
+</kw>
+<kw name="Input OriginAirport" library="resource">
+<arguments>
+<arg>PDX</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>air-city-departure</arg>
+<arg>${origin}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:43.375" level="INFO">Typing text 'PDX' into text field 'air-city-departure'</msg>
+<status status="PASS" endtime="20170720 16:30:43.552" starttime="20170720 16:30:43.375"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:43.552" starttime="20170720 16:30:43.375"></status>
+</kw>
+<kw name="Input DestinationAirport" library="resource">
+<arguments>
+<arg>EWR</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>air-city-arrival</arg>
+<arg>${destination}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:43.557" level="INFO">Typing text 'EWR' into text field 'air-city-arrival'</msg>
+<status status="PASS" endtime="20170720 16:30:43.702" starttime="20170720 16:30:43.556"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:43.702" starttime="20170720 16:30:43.556"></status>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<assign>
+<var>${departureDate}</var>
+</assign>
+<msg timestamp="20170720 16:30:43.704" level="INFO">${departureDate} = 2017-07-20 16:30:43.704</msg>
+<status status="PASS" endtime="20170720 16:30:43.705" starttime="20170720 16:30:43.704"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${departureDate}</arg>
+<arg>21 days</arg>
+</arguments>
+<assign>
+<var>${departureDate}</var>
+</assign>
+<msg timestamp="20170720 16:30:43.750" level="INFO">${departureDate} = 2017-08-10 16:30:43.704</msg>
+<status status="PASS" endtime="20170720 16:30:43.750" starttime="20170720 16:30:43.705"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${departureDate}</arg>
+<arg>result_format=%m/%d</arg>
+</arguments>
+<assign>
+<var>${departureDateStr}</var>
+</assign>
+<msg timestamp="20170720 16:30:43.752" level="INFO">${departureDateStr} = 08/10</msg>
+<status status="PASS" endtime="20170720 16:30:43.752" starttime="20170720 16:30:43.751"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${departureDate}</arg>
+<arg>4 days</arg>
+</arguments>
+<assign>
+<var>${arrivalDate}</var>
+</assign>
+<msg timestamp="20170720 16:30:43.753" level="INFO">${arrivalDate} = 2017-08-14 16:30:43.704</msg>
+<status status="PASS" endtime="20170720 16:30:43.753" starttime="20170720 16:30:43.752"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${arrivalDate}</arg>
+<arg>result_format=%m/%d</arg>
+</arguments>
+<assign>
+<var>${arrivalDateStr}</var>
+</assign>
+<msg timestamp="20170720 16:30:43.754" level="INFO">${arrivalDateStr} = 08/14</msg>
+<status status="PASS" endtime="20170720 16:30:43.755" starttime="20170720 16:30:43.753"></status>
+</kw>
+<kw name="Input DepartureDate" library="resource">
+<arguments>
+<arg>${departureDateStr}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>air-date-departure</arg>
+<arg>${departureDate}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:43.755" level="INFO">Typing text '08/10' into text field 'air-date-departure'</msg>
+<status status="PASS" endtime="20170720 16:30:44.510" starttime="20170720 16:30:43.755"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:44.510" starttime="20170720 16:30:43.755"></status>
+</kw>
+<kw name="Input ReturnDate" library="resource">
+<arguments>
+<arg>${arrivalDateStr}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>air-date-return</arg>
+<arg>${ReturnDate}</arg>
+</arguments>
+<msg timestamp="20170720 16:30:44.515" level="INFO">Typing text '08/14' into text field 'air-date-return'</msg>
+<status status="PASS" endtime="20170720 16:30:45.034" starttime="20170720 16:30:44.515"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:45.034" starttime="20170720 16:30:44.514"></status>
+</kw>
+<kw name="Search Flights" library="resource">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>jb-booking-form-submit-button</arg>
+</arguments>
+<msg timestamp="20170720 16:30:45.038" level="INFO">Clicking button 'jb-booking-form-submit-button'.</msg>
+<status status="PASS" endtime="20170720 16:30:49.989" starttime="20170720 16:30:45.037"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:49.989" starttime="20170720 16:30:45.036"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="Selenium2Library">
+<doc>Returns number of elements matching `xpath`</doc>
+<arguments>
+<arg>//tr[@id='outbound_flightRow_1']</arg>
+</arguments>
+<assign>
+<var>${firstOutBound}</var>
+</assign>
+<msg timestamp="20170720 16:30:51.512" level="INFO">${firstOutBound} = 1</msg>
+<status status="PASS" endtime="20170720 16:30:51.512" starttime="20170720 16:30:49.991"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${firstOutBound}</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20170720 16:30:51.515" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20170720 16:30:51.515" starttime="20170720 16:30:51.514"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="Selenium2Library">
+<doc>Returns number of elements matching `xpath`</doc>
+<arguments>
+<arg>//tr[@id='inbound_flightRow_1']</arg>
+</arguments>
+<assign>
+<var>${firstInBound}</var>
+</assign>
+<msg timestamp="20170720 16:30:51.654" level="INFO">${firstInBound} = 1</msg>
+<status status="PASS" endtime="20170720 16:30:51.654" starttime="20170720 16:30:51.517"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${firstInBound}</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20170720 16:30:51.656" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20170720 16:30:51.656" starttime="20170720 16:30:51.655"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170720 16:30:54.831" starttime="20170720 16:30:51.657"></status>
+</kw>
+<status status="PASS" endtime="20170720 16:30:54.831" critical="yes" starttime="20170720 16:30:32.453"></status>
+</test>
+<doc>A test suite with a single test for valid login.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<status status="PASS" endtime="20170720 16:30:54.831" starttime="20170720 16:30:29.949"></status>
+</suite>
+<status status="PASS" endtime="20170720 16:30:54.847" starttime="20170720 16:30:29.765"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Southwest Test" pass="1">Southwest Test</stat>
+<stat fail="0" id="s1-s1" name="Open Southwest" pass="1">Southwest Test.Open Southwest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
